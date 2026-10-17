@@ -48,6 +48,13 @@ public class PlayerAttack : MonoBehaviour
             {
                 enemyHealth.TakeDamage(attackDamage);
             }
+
+            // NUEVO: Daño para el Jefe Final (Boss)
+            BossController boss = enemy.GetComponent<BossController>();
+            if (boss != null)
+            {
+                boss.TakeDamage(attackDamage);
+            }
         }
     }
 
