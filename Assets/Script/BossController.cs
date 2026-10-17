@@ -26,14 +26,12 @@ public class BossController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // 2. Configurar barraVidaUI.maxValue y value con la salud máxima
         if (barraVidaUI != null)
         {
             barraVidaUI.maxValue = maxHealth;
             barraVidaUI.value = maxHealth;
         }
 
-        // Busca al Player automáticamente si no se arrastró en el Inspector
         if (player == null)
         {
             GameObject objPlayer = GameObject.FindGameObjectWithTag("Player");
@@ -46,12 +44,10 @@ public class BossController : MonoBehaviour
     {
         if (player == null) return;
 
-        // 3. Perseguir al jugador en el eje X usando Rigidbody2D.MovePosition
         Vector2 posicionObjetivo = new Vector2(player.position.x, rb.position.y);
         Vector2 nuevaPosicion = Vector2.MoveTowards(rb.position, posicionObjetivo, velocidad * Time.deltaTime);
         rb.MovePosition(nuevaPosicion);
 
-        // Voltear el sprite hacia el jugador manteniendo la escala 2.5
         if (player.position.x > transform.position.x)
         {
             transform.localScale = new Vector3(2.5f, 2.5f, 1f);
@@ -62,7 +58,6 @@ public class BossController : MonoBehaviour
         }
     }
 
-    // 4. Función pública TakeDamage(int damage) que resta vida y actualiza el Slider de UI
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
@@ -73,30 +68,32 @@ public class BossController : MonoBehaviour
             barraVidaUI.value = currentHealth;
         }
 
-        // 5. Al bajar del 50% de vida (<= maxHealth / 2), entra en Fase de Furia
         if (!enFuria && currentHealth <= maxHealth / 2)
         {
             enFuria = true;
             if (spriteRenderer != null)
             {
-                spriteRenderer.color = Color.red; // Cambia el SpriteRenderer a color rojo
+                spriteRenderer.color = Color.red;
             }
-            velocidad *= 1.8f; // Aumenta la velocidad de movimiento un 80%
+            velocidad *= 1.8f;
         }
 
-        // 6. Si llega a 0 de vida, activa Victoria, pausa el tiempo y destruye al Boss
         if (currentHealth <= 0)
         {
-            if (panelVictoriaUI != null)
-            {
-                panelVictoriaUI.SetActive(true);
-            }
-            Time.timeScale = 0f;
-            Destroy(gameObject);
+            Die();
         }
     }
 
-    // Daño al jugador al chocar con el Boss
+    void Die()
+    {
+        if (panelVictoriaUI != null)
+        {
+            panelVictoriaUI.SetActive(true);
+        }
+        Time.timeScale = 0f;
+        Destroy(gameObject);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.name == "Player")
