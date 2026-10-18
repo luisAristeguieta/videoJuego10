@@ -53,3 +53,8 @@ desktop.ini
 # Archivos de soluciones y configuración de Visual Studio
 *.slnx
 .vsconfig
+
+# Omitir compilaciones y archivos ejecutables o comprimidos
+/Build/
+*.rar
+*.zip

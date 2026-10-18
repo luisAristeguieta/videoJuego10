@@ -10,6 +10,8 @@ Proyecto desarrollado en Unity 2D (Unity 6). En este taller se implementa la con
 ## 📹 Video de Demostración
 - **Video en Google Drive:** [Ver Video Demostrativo - Taller N° 10](https://drive.google.com/file/d/17ACqivzue1cSNWPvpd9fMyySt6O-Y1Pn/view?usp=sharing)
 
+- **Versión Ejecutable Compilable (.RAR):** [Descargar Build .RAR (Google Drive)](https://drive.google.com/file/d/1JMNxlTLuc-b3kNz-eTRpQTH_kZGyHnTJ/view?usp=sharing) *(También disponible el registro de enlace en `Entregables/Video_Taller #10.txt`)*
+
 ---
 
 ## 🖼️ Evidencias del Proyecto
@@ -60,3 +62,13 @@ Panel modal integrado en el Canvas del Nivel 2 con título estilizado en TextMes
 5. Abre el proyecto con Unity 6 (o versión compatible).
 6. Dirígete a Assets/Scenes/ y abre la escena principal Level 1.unity (o la inicial MainMenu.unity).
 7. Presiona Play para atravesar el portal del Nivel 1, enfrentarte al Jefe en el Nivel 2 y comprobar el sistema de combate, furia y pantalla de victoria.
+
+
+## 🎮 Instrucciones para Jugar la Versión Compilada (.RAR)
+
+1. Descarga el archivo comprimido `.rar` desde el enlace de Google Drive proporcionado en la sección superior (o accede al archivo de texto de referencia dentro de `Entregables/Video_Taller #10.txt`).
+2. Extrae el contenido del archivo `.rar` en cualquier ruta de tu computadora (*Nota importante: Asegúrate de extraer **toda la carpeta completa**, ya que el archivo ejecutable necesita estar acompañado obligatoriamente de su carpeta `TheWanderingKnight_Data` y dependencias para funcionar*).
+3. Entra a la carpeta extraída y haz doble clic sobre el archivo de aplicación **`TheWanderingKnight.exe`**.
+4. ¡Disfruta de la experiencia completa desde el menú principal, pasando por el Nivel 1, atravesando el portal hasta el Nivel 2 y derrotando al Jefe Final!
+
+---
